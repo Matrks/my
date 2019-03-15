@@ -15,31 +15,28 @@ client.on('ready', () => {
 
 
 
-
-
 const adminprefix = "M";
-const devs = ['429335711267815424'];
-client.on('message', message => {
-  var argresult = message.content.split(` `).slice(1).join(' ');
-    if (!devs.includes(message.author.id)) return;
-    
-if (message.content.startsWith(adminprefix + 'ge')) {
-  client.user.setGame(argresult);
-    message.channel.sendMessage(`**${argresult} تم تغيير بلاينق  **`)
-} else 
-  if (message.content.startsWith(adminprefix + 'na')) {
-client.user.setUsername(argresult).then
-    message.channel.sendMessage(`**${argresult}** : تم تغيير أسم `)
-return message.reply("**لا يمكنك تغيير الاسم يجب عليك الانتظآر لمدة ساعتين . **");
-} else
-  if (message.content.startsWith(adminprefix + 'av')) {
-client.user.setAvatar(argresult);
-  message.channel.sendMessage(`**${argresult}** : تم تغير صورة `);
-      } else     
-if (message.content.startsWith(adminprefix + 'st')) {
-  client.user.setGame(argresult, "https://www.twitch.tv/idk");
-    message.channel.sendMessage(`**تم تغيير تويتش  إلى  ${argresult}**`)
-   if (message.content.startsWith(adminprefix + 'wt')) {
+const developers = ['429335711267815424'];
+
+console.log("Matrks");
+
+client.on('ready', () => {
+    console.log(`Logged as ${client.user.tag}`)
+})
+
+
+client.on('message', message => {//// حقوق @Fèarless | bÁrOd#0001
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!developers.includes(message.author.id)) return;
+      
+  if (message.content.startsWith(adminprefix + 'py')) {
+    client.user.setGame(argresult);
+      message.channel.send(`**تم تغيير البلاينق الى   ${argresult}**`)
+  } else 
+     if (message.content === (adminprefix + "leave")) {
+    message.guild.leave();        
+  } else  
+  if (message.content.startsWith(adminprefix + 'wt')) {
   client.user.setActivity(argresult, {type:'WATCHING'});
       message.channel.send(`**تَم تغيير الواتشينق الى   ${argresult}**`)
   } else 
@@ -47,8 +44,21 @@ if (message.content.startsWith(adminprefix + 'st')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
       message.channel.send(`**تَم تغيير الليسينينق الى   ${argresult}**`)
   } else
+  if (message.content.startsWith(adminprefix + 'st')) {
+    client.user.setGame(argresult, "https://www.twitch.tv/paaaaaartly");
+      message.channel.send(`تم تغييرك حالتك بالتويتش الى   **${argresult}**`)
+  }
+  if (message.content.startsWith(adminprefix + 'Na')) {
+  client.user.setUsername(argresult).then
+      message.channel.send(`جاري تغيير الأسم لـ ..**${argresult}** `)
+} else
+if (message.content.startsWith(adminprefix + 'av')) {
+  client.user.setAvatar(argresult);
+    message.channel.send(`**جاري تغيير الأفتار... :** `);
 }
-});
+})
+
+
 
 
 
